@@ -1,0 +1,33 @@
+spring:
+  config:
+    activate:
+      on-profile: dev
+  application:
+    name: order-service
+  datasource:
+    url: jdbc:mysql://localhost:3306/order_demo?serverTimezone=UTC&useSSL=false
+    username: root
+    password: 1234
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  data:
+    redis:
+      host: 47.99.97.185
+      port: 6379
+      password: redis
+      database: 0
+      lettuce:
+        pool:
+          max-active: 10
+          max-idle: 6
+          min-idle: 2
+          max-wait: 1000ms
+server:
+  port: 8080
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: org.haiyang.orderdemo.po
+  configuration:
+    map-underscore-to-camel-case: true
+logging:
+  level:
+    root: warn
